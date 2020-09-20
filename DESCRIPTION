@@ -1,0 +1,16 @@
+Package: generalizing
+Type: Package
+Title: Generalizes experimental results by leveraging the invariance of probabilities of causation
+Version: 0.1
+Author: Carlos Cinelli
+Maintainer: Carlos Cinelli <carloscinelli@hotmail.com>
+Description: Implements methods for generalizing experimental results leveraging the invariance of probabilities of causation, as discussed in Cinelli and Pearl (2020+).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Imports: rjags
+URL: http://github.com/carloscinelli/generalizing
+BugReports: http://github.com/carloscinelli/generalizing/issues
+Depends:
+    R (>= 3.0.0)
