@@ -58,7 +58,6 @@ Aceh_to_WJ_m <- generalize(sources = Aceh, target = West.Java,
 # posterior samples histograms
 par(mfrow = c(1,2))
 mark <- West.Java$n1/West.Java$N1
-par(mfrow = c(1,2))
 
 ## hist of P(Y1 = 1) for West Java -- flat prior
 hist(Aceh_to_WJ, main = "Flat prior")
