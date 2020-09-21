@@ -1,29 +1,29 @@
 model_one_source <-
     "model{
   # Likelihood
-  n0  ~ dbinom(p01, N0)
-  n1  ~ dbinom(p11, N1)
-  n0s ~ dbinom(p01s, N0s)
+  n0  ~ dbinom(P01, N0)
+  n1  ~ dbinom(P11, N1)
+  n0s ~ dbinom(P01s, N0s)
 
 
   # Priors
   PS10 ~ dbeta(1,1)
   PS01 ~ dbeta(1,1)
-  p01  ~ dbeta(1,1)
-  p01s ~ dbeta(1,1)
+  P01  ~ dbeta(1,1)
+  P01s ~ dbeta(1,1)
 
 
   # Computed quantities
-  p11  <- (1-PS10)*p01  + PS01*(1-p01)
-  p11s <- (1-PS10)*p01s + PS01*(1-p01s)
+  P11  <- (1-PS10)*P01  + PS01*(1-P01)
+  P11s <- (1-PS10)*P01s + PS01*(1-P01s)
 
   ## bounds
-  PS01.l    <- max(0, (p11-p01)/(1-p01))
-  PS01.u    <- min(p11/(1-p01), 1)
-  p11_1 <- (1-p01s/p01)*PS01.l + (p01s/p01)*p11
-  p11_2 <- (1-p01s/p01)*PS01.u + (p01s/p01)*p11
-  p11s.l <- min(p11_1, p11_2)
-  p11s.u <- max(p11_1, p11_2)
+  PS01.l    <- max(0, (P11-P01)/(1-P01))
+  PS01.u    <- min(P11/(1-P01), 1)
+  P11_1 <- (1-P01s/P01)*PS01.l + (P01s/P01)*P11
+  P11_2 <- (1-P01s/P01)*PS01.u + (P01s/P01)*P11
+  P11s.l <- min(P11_1, P11_2)
+  P11s.u <- max(P11_1, P11_2)
 }"
 
 
@@ -31,43 +31,43 @@ model_one_source_monotonic <-
   "model{
 
   # Likelihood
-  n0  ~ dbinom(p01, N0)
-  n1  ~ dbinom(p11, N1)
-  n0s ~ dbinom(p01s, N0s)
+  n0  ~ dbinom(P01, N0)
+  n1  ~ dbinom(P11, N1)
+  n0s ~ dbinom(P01s, N0s)
 
 
   # Priors
   PS10 <- 0
   PS01 ~ dbeta(1,1)
-  p01  ~ dbeta(1,1)
-  p01s ~ dbeta(1,1)
+  P01  ~ dbeta(1,1)
+  P01s ~ dbeta(1,1)
 
 
   # Computed quantities
-  p11  <- (1-PS10)*p01  + PS01*(1-p01)
-  p11s <- (1-PS10)*p01s + PS01*(1-p01s)
+  P11  <- (1-PS10)*P01  + PS01*(1-P01)
+  P11s <- (1-PS10)*P01s + PS01*(1-P01s)
 }"
 
 
 model_two_sources <- "model{
 
   # Likelihood
-  n0a ~ dbinom(p01a, N0a)
-  n0b ~ dbinom(p01b, N0b)
-  n1a ~ dbinom(p11a, N1a)
-  n1b ~ dbinom(p11b, N1b)
-  n0s ~ dbinom(p01s, N0s)
+  n0a ~ dbinom(P01a, N0a)
+  n0b ~ dbinom(P01b, N0b)
+  n1a ~ dbinom(P11a, N1a)
+  n1b ~ dbinom(P11b, N1b)
+  n0s ~ dbinom(P01s, N0s)
 
 
   # Priors
-  p01a ~ dbeta(1, 1)
-  p01b ~ dbeta(1, 1)
-  p01s ~ dbeta(1, 1)
+  P01a ~ dbeta(1, 1)
+  P01b ~ dbeta(1, 1)
+  P01s ~ dbeta(1, 1)
   PS10 ~ dbeta(1, 1)
   PS01 ~ dbeta(1, 1)
 
   # Computed quantities
-  p11a <- (1-PS10)*p01a + PS01*(1-p01a)
-  p11b <- (1-PS10)*p01b + PS01*(1-p01b)
-  p11s <- (1-PS10)*p01s + PS01*(1-p01s)
+  P11a <- (1-PS10)*P01a + PS01*(1-P01a)
+  P11b <- (1-PS10)*P01b + PS01*(1-P01b)
+  P11s <- (1-PS10)*P01s + PS01*(1-P01s)
 }"

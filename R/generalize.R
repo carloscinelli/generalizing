@@ -81,7 +81,7 @@
 #' hist(AcehWJ_to_Sarlahi, var = "PS10")
 #'
 #' ## hist of P(Y1 = 1)
-#' hist(AcehWJ_to_Sarlahi, var = "p11s")
+#' hist(AcehWJ_to_Sarlahi, var = "P11s")
 #' abline(v = mark, col = "red", lty = 2, lwd = 2)
 #'@references
 #' C. Cinelli and J. Pearl. Generalizing Experimental Results by Leveraging Knowledge of Mechanisms. European Journal of Epidemiology.
@@ -110,8 +110,8 @@ generalize <- function(sources, target, monotonic = FALSE,
       model.code <- model_one_source_monotonic
 
       post <- c("PS01", "PS10",
-                "p01" , "p01s",
-                "p11" , "p11s")
+                "P01" , "P01s",
+                "P11" , "P11s")
 
     } else {
 
@@ -119,16 +119,16 @@ generalize <- function(sources, target, monotonic = FALSE,
 
       post <- c("PS01" , "PS10",
                 "PS01.l" , "PS01.u",
-                "p01"  , "p01s",
-                "p11"  , "p11s",
-                "p11s.l", "p11s.u")
+                "P01"  , "P01s",
+                "P11"  , "P11s",
+                "P11s.l", "P11s.u")
     }
   } else {
     model.code <- model_two_sources
 
     post <- c("PS01" , "PS10",
-              "p01a"  , "p01b", "p01s",
-              "p11a"  , "p11b", "p11s")
+              "P01a"  , "P01b", "P01s",
+              "P11a"  , "P11b", "P11s")
     if(monotonic){
       warning("Two source samples provided. Monotonic set to FALSE.")
     }

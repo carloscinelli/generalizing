@@ -7,7 +7,7 @@ plot.generalize <- function(x, ...){
 
 #'@export
 #'@importFrom graphics hist
-hist.generalize <- function(x, var = "p11s",
+hist.generalize <- function(x, var = "P11s",
                             xlab = var,
                             breaks = 50,
                             main = "",
