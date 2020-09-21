@@ -2,3 +2,9 @@
 
 language: R
 cache: packages
+
+## dependencies that need to be installed beforehand if any
+sudo: true
+before_install:
+  - sudo apt-get install jags
+  - sudo apt-get install r-cran-rjags
