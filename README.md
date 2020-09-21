@@ -84,7 +84,7 @@ hist(AcehWJ_to_Sarlahi, var = "PS01")
 hist(AcehWJ_to_Sarlahi, var = "PS10")
 
 ## hist of P(Y1 = 1) for Sarlahi
-hist(AcehWJ_to_Sarlahi, var = "p11s")
+hist(AcehWJ_to_Sarlahi, var = "P11s")
 abline(v = mark, col = "red", lty = 2, lwd = 2)
 ```
 
