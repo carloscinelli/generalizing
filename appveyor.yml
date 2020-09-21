@@ -6,25 +6,10 @@ init:
         $ErrorActionPreference = "Stop"
         Invoke-WebRequest http://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
         Import-Module '..\appveyor-tool.ps1'
-
 install:
-  ps: Bootstrap
-
-cache:
-  - C:\RLibrary
-
-environment:
-  NOT_CRAN: true
-  # env vars that may need to be set, at least temporarily, from time to time
-  # see https://github.com/krlmlr/r-appveyor#readme for details
-  # USE_RTOOLS: true
-  # R_REMOTES_STANDALONE: true
-
-# Adapt as necessary starting from here
-# install:
-#   - ps: Bootstrap
-#   - ps: (new-object net.webclient).DownloadFile('https://github.com/muschellij2/neuroc_dependencies/raw/master/JAGS-4.2.0-Rtools33.exe', 'C:\projects\JAGS-4.2.0.exe')
-#   - cmd: C:\projects\JAGS-4.2.0.exe /S
+  - ps: Bootstrap
+  - ps: (new-object net.webclient).DownloadFile('https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Windows/JAGS-4.2.0-Rtools33.exe', 'C:\projects\JAGS-4.2.0.exe')
+  - cmd: C:\projects\JAGS-4.2.0.exe /S
 
 build_script:
   - travis-tool.sh install_deps
